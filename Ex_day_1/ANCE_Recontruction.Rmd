@@ -117,3 +117,25 @@ Recon_Q.Sim$AIC-Recon_Q.Asim$AIC
 ```
 
 
+## Home Excrcise
+Try to code your own Likelihood function that calculates likelihood of a state pattern given (i) a tree, (ii) rate matrix with specified parameters, and (iii) a specified initial vector. It can be a simple Ln function that works specifically with small trees (3 taxa). Your toy algorithm should work like Felsentein's pruning algorithm from Lecture 6. You may choose any states at tips (use binary characters for brevity).
+
+Before, coding Ln function, simulate a tree and note the main data structures that store tree topology and branch lengths
+
+```{r}
+tr<-pbtree(n=3, scale=1, b=1, d=0)
+plot(tr)
+nodelabels()
+edgelabels()
+tiplabels()
+```
+You will need thee object for you Ln function *tr$edge* *tr$edge.length*
+```{r}
+# tree topologu
+tr$edge
+
+# branch lengths
+tr$edge.length
+
+```
+
