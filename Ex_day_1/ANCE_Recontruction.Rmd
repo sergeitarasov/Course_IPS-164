@@ -1,0 +1,119 @@
+---
+title: "Model Fitting and Ancestral Character State Reconstruction"
+output:
+  html_document:
+    df_print: paged
+---
+
+**Aim**: Test if a simulated character evolves under symmetric or asymmetric Markov model of character evolution using AIC. Reconstruct its ancestral states.
+
+1. Simulate a tree
+2. Simulate character evolution under asymmetric model
+3. Fit symmetric and asymmetric models
+4. Reconstruct character's ancestral states
+5. Compare models using AIC
+
+
+Load necessary packages
+```{r}
+# uncomment if you do not have this packages installe
+#install.packages("corHMM")
+#install.packages("phytools")
+
+library("corHMM")
+library("phytools")
+
+```
+
+## Simulate a Tree and Traits
+```{r}
+# simulate tree using pure birth process
+tree<-pbtree(n=200, scale=100, b=1, d=0)
+plot(tree)
+
+# simulate character evolution
+# make rate matrix Q
+Q <- matrix(
+  c(
+    -0.03, 0.03,
+    0.1, -0.1
+    ), 2,2, byrow = T)
+
+Q
+
+```
+
+Simulate character evolution on tree using Q
+```{r}
+hist <- sim.history(tree, Q, nsim=1)
+plot(hist)
+```
+
+
+## Inference using Symmetrical Model
+
+Now construct rate matrices that show parametrization schemes for ML inference.
+```{r}
+# one-rate symmetrical model
+
+Q.Sym <- matrix(
+  c(
+    NA, 1,
+    1, NA
+  ), 2,2, byrow = T)
+
+Q.Sym
+
+# Inference
+taxa <- cbind(hist$tip.label, hist$states)
+Recon_Q.Sim <- rayDISC(hist, taxa, rate.mat=Q.Sym, node.states="marginal", 
+        model="ARD", root.p="maddfitz")
+
+# infered rate matrix
+Recon_Q.Sim
+
+# plot ANCE
+plotRECON(tree, Recon_Q.Sim$states, piecolors=c('black', 'red'), title="1-rate Model")
+
+
+```
+
+## Inference using Asymmetrical Model   
+```{r}
+# 2-rate symmetrical model
+
+Q.Asym <- matrix(
+  c(
+    NA, 1,
+    2, NA
+  ), 2,2, byrow = T)
+
+Q.Asym
+
+# Inference
+taxa <- cbind(hist$tip.label, hist$states)
+Recon_Q.Asim <- rayDISC(hist, taxa, rate.mat=Q.Asym, node.states="marginal", 
+                       model="ARD", root.p="maddfitz")
+
+# infered rate matrix
+Recon_Q.Asim
+
+# plot ANCE
+plotRECON(tree, Recon_Q.Asim$states, piecolors=c('black', 'red'), title="1-rate Model")
+
+
+```
+
+## Compare Results 
+
+Compare Model Fit using AIC 
+```{r}
+Q
+Recon_Q.Sim
+Recon_Q.Asim
+
+# delta AIC
+Recon_Q.Sim$AIC-Recon_Q.Asim$AIC
+```
+
+
