@@ -90,8 +90,8 @@ c2
 
 Likelihood and AIC
 ```{r}
-L2.est=dbinom(c2, size=100, prob=c2/3)
-L2.fair=dbinom(c2, size=3, prob=.5)
+L2.est=dbinom(c2, size=100, prob=c2/100)
+L2.fair=dbinom(c2, size=100, prob=.5)
 
 # AIC
 AIC.c2.m1=2*1-2*log(L2.est)
