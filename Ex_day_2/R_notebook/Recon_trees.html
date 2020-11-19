@@ -1640,7 +1640,7 @@ summary {
 <div id="software-to-install" class="section level2">
 <h2>Software to Install</h2>
 <ul>
-<li><a href="https://www.jalview.org">jalview</a></li>
+<li><a href="https://www.jalview.org">Jalview</a></li>
 <li><a href="https://mafft.cbrc.jp/alignment/software/">mafft</a> (there is also an online version that can be used without installation)</li>
 <li><a href="http://www.iqtree.org">IQ Tree</a></li>
 <li><a href="https://github.com/rambaut/figtree/releases">FigTree</a></li>
@@ -1655,7 +1655,7 @@ summary {
 </div>
 <div id="getting-orthologous-sequences" class="section level2">
 <h2>1. Getting orthologous sequences</h2>
-<p>Go to <em>Analyses</em> folder. It includes three unaligned fasta files which are mitochondrial genes (COI, COII, 16s) of 10 dung beetle species from the tribe Oniticellini. We assume that sequences within each file are orthologous.</p>
+<p>Go to <em>Analyses</em> folder. It includes three unaligned fasta files which are mitochondrial genes (COI, COII, 16s) of 10 dung beetle species from the tribe Oniticellini. We assume that the sequences within each file are orthologous.</p>
 </div>
 <div id="alignment" class="section level2">
 <h2>2. Alignment</h2>
@@ -1663,31 +1663,33 @@ summary {
 <pre class="bash"><code>mafft --auto Oniticel_COI.fasta &gt; aligned_Oniticel_COI.fasta 
 mafft --auto Oniticel_COII.fasta &gt; aligned_Oniticel_COII.fasta 
 mafft --auto Oniticel_rRNA_16S.fasta &gt; aligned_Oniticel_rRNA_16S.fasta</code></pre>
-<p>Open aligned fasta files with Jalview.</p>
+<p>Open aligned fasta files in Jalview.</p>
 </div>
 <div id="model-selection-tree-inference" class="section level2">
 <h2>3&amp;4. Model selection &amp; Tree inference</h2>
-<p>Now, we are ready to run tree inference with iqtree. For Windows users: copy the two files form the iqtree <em>folder to our </em>Analysis* folder; using command line tool cmd navigate to <em>Analysis</em> folder by typing *cd &quot;D:_PATH&quot;*. Now you can iqtree from within the command line. More help is <a href="http://www.iqtree.org/doc/Quickstart">here</a>.</p>
-<p>Let’s run the simplest analysis that treats the three genes as separate partitions and assigns to each GTR+G model.</p>
+<p>Now, we are ready to run tree inference with iqtree. For Windows users: copy the two files form the iqtree <em>bin</em> folder to our <em>Analysis</em> folder; using command line tool cmd navigate to <em>Analysis</em> folder by typing <em>cd “X:\YOUR_PATH\Analysis”</em>. Now you use can iqtree from within the command line. More help is <a href="http://www.iqtree.org/doc/Quickstart">here</a>.</p>
+<p>Let’s run the simplest analysis that treats the three genes as separate partitions and assigns to each one a GTR+G model.</p>
 <pre class="bash"><code>iqtree -spp partition_1.txt -bb 1000 -pre part_simple</code></pre>
 <ul>
-<li>-spp specifies partition file partition_1.tx</li>
-<li>-bb an ultrafast bootstrap approximation (UFBoot) (Minh et al., 2013; Hoang et al., 2018) with 1000 replicates</li>
-<li>-pre prefix for output files</li>
+<li><em>-spp</em> specifies partition file partition_1.tx</li>
+<li><em>-bb</em> an ultrafast bootstrap approximation (UFBoot) (Minh et al., 2013; Hoang et al., 2018) with 1000 replicates</li>
+<li><em>-pre</em> prefix for output files</li>
 </ul>
-<p>Use FigTree to view the tree fiels.</p>
-<p>Now Let’s complicate our analysis by using a more complex partitioning scheme + partitioning and model selection.</p>
+<p>Use FigTree to view the tree files.</p>
+<p>Now, let’s complicate our analysis by using a more complex partitioning scheme + partitioning and model selection.</p>
 <pre class="bash"><code>iqtree -spp partition_1.txt -m TESTMERGE -rcluster 10 -bb 1000 -pre part_Best</code></pre>
 <ul>
-<li>-m Perform standard model selection like; -m TESTMERGE select best-fit partitioning scheme by possibly merging partitions to reduce over-parameterization and increase model fit. It implements the greedy algorithm of PartitionFinder. After the selection perform tree search.</li>
-<li>-rcluster 10 Specify the percentage for the relaxed clustering algorithm (Lanfear et al., 2014) to speed up the computation instead of the default slow greedy algorithm. This is similar to –rcluster-percent option of PartitionFinder. For example, with -rcluster 10 only the top 10% partition schemes are considered to save computations.</li>
+<li><em>-m</em> performs standard model selection; <em>-m TESTMERGE</em> selects best-fit partitioning scheme by possibly merging partitions to reduce over-parameterization and increase model fit. It implements the greedy algorithm of PartitionFinder. Next, it performs tree search.</li>
+<li><em>-rcluster 10</em> specifies the percentage for the relaxed clustering algorithm (Lanfear et al., 2014) to speed up the computation instead of the default slow greedy algorithm. This is similar to –rcluster-percent option of PartitionFinder. For example, with -rcluster 10 only the top 10% partition schemes are considered to save computations.</li>
 </ul>
 </div>
 <div id="additonal-info" class="section level1">
 <h1>Additonal Info</h1>
 <ul>
 <li><p>Install <a href="https://www.beast2.org">Beast2</a> and <a href="http://tree.bio.ed.ac.uk/software/tracer/">Tracer</a> for tomorrow’s demo</p></li>
-<li><p>There is an additional tutorial <em>Correlated_trait_evo.R</em> for testing correlated trait evolution in the folder <em>Additional_tutorials</em></p></li>
+<li><p><a href="https://github.com/ropensci/phylotaR">phylotaR</a> R package for fast Automated Retrieval of Orthologous DNA Sequences from GenBank. Consider using it for building big phylogenies or your project</p></li>
+<li><p><a href="https://github.com/AntonelliLab/supersmartR">supersmartR</a> SUPERSMART is an R package for the automated generation of phylogenetic trees based around a hybrid method using both the supermatrix and supertree approach. It uses phylotaR. Here is the <a href="https://github.com/AntonelliLab/supersmartR-workshop/tree/master/pipelines">tutorial</a> for constructing big matrices</p></li>
+<li><p>There is an additional tutorial, if you are interested, <em>Correlated_trait_evo.R</em> for testing correlated trait evolution in the folder <em>Additional_tutorials</em></p></li>
 </ul>
 </div>
 

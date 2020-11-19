@@ -6,7 +6,7 @@ output:
 ---
 ## Software to Install
 
-* [jalview](https://www.jalview.org)
+* [Jalview](https://www.jalview.org)
 * [mafft](https://mafft.cbrc.jp/alignment/software/) (there is also an online version that can be used without installation)
 * [IQ Tree](http://www.iqtree.org)
 * [FigTree](https://github.com/rambaut/figtree/releases)
@@ -22,7 +22,7 @@ Tree inference with molecular data includes the following steps:
 
 ## 1. Getting orthologous sequences
 
-Go to *Analyses* folder. It includes three unaligned fasta files which are mitochondrial genes (COI, COII, 16s) of 10 dung beetle species from the tribe Oniticellini. We assume that sequences within each file are orthologous.
+Go to *Analyses* folder. It includes three unaligned fasta files which are mitochondrial genes (COI, COII, 16s) of 10 dung beetle species from the tribe Oniticellini. We assume that the sequences within each file are orthologous.
 
 ## 2. Alignment
 
@@ -35,34 +35,38 @@ mafft --auto Oniticel_COII.fasta > aligned_Oniticel_COII.fasta
 mafft --auto Oniticel_rRNA_16S.fasta > aligned_Oniticel_rRNA_16S.fasta
 ```
 
-Open aligned fasta files with Jalview.
+Open aligned fasta files in Jalview.
 
 ## 3&4. Model selection & Tree inference
-Now, we are ready to run tree inference with iqtree. For Windows users: copy the two files form the iqtree *\bin* folder to our  *Analysis* folder; using command line tool cmd navigate to *Analysis* folder by typing *cd "D:\YOUR_PATH\Analysis"*. Now you can iqtree from within the command line. More help is [here](http://www.iqtree.org/doc/Quickstart).
+Now, we are ready to run tree inference with iqtree. For Windows users: copy the two files form the iqtree *bin* folder to our  *Analysis* folder; using command line tool cmd navigate to *Analysis* folder by typing *cd "X:\\YOUR_PATH\\Analysis"*. Now you use can iqtree from within the command line. More help is [here](http://www.iqtree.org/doc/Quickstart).
 
-Let's run the simplest analysis that treats the three genes as separate partitions and assigns to each GTR+G model.
+Let's run the simplest analysis that treats the three genes as separate partitions and assigns to each one a GTR+G model.
 
 ```{bash, eval = FALSE}
 iqtree -spp partition_1.txt -bb 1000 -pre part_simple
 ```
 
-* -spp specifies partition file partition_1.tx
-* -bb an ultrafast bootstrap approximation (UFBoot) (Minh et al., 2013; Hoang et al., 2018) with 1000 replicates
-* -pre prefix for output files
+* *-spp* specifies partition file partition_1.tx
+* *-bb* an ultrafast bootstrap approximation (UFBoot) (Minh et al., 2013; Hoang et al., 2018) with 1000 replicates
+* *-pre* prefix for output files
 
-Use FigTree to view the tree fiels.
+Use FigTree to view the tree files.
 
-Now Let's complicate our analysis by using a more complex partitioning scheme + partitioning and model selection.
+Now, let's complicate our analysis by using a more complex partitioning scheme + partitioning and model selection.
 
 ```{bash, eval = FALSE}
 iqtree -spp partition_1.txt -m TESTMERGE -rcluster 10 -bb 1000 -pre part_Best
 ```
 
-* -m Perform standard model selection like; -m TESTMERGE select best-fit partitioning scheme by possibly merging partitions to reduce over-parameterization and increase model fit. It implements the greedy algorithm of PartitionFinder. After the selection perform tree search.
-* -rcluster 10 Specify the percentage for the relaxed clustering algorithm (Lanfear et al., 2014) to speed up the computation instead of the default slow greedy algorithm. This is similar to --rcluster-percent option of PartitionFinder. For example, with -rcluster 10 only the top 10% partition schemes are considered to save computations.
+* *-m* performs standard model selection; *-m TESTMERGE* selects best-fit partitioning scheme by possibly merging partitions to reduce over-parameterization and increase model fit. It implements the greedy algorithm of PartitionFinder. Next, it performs tree search.
+* *-rcluster 10* specifies the percentage for the relaxed clustering algorithm (Lanfear et al., 2014) to speed up the computation instead of the default slow greedy algorithm. This is similar to --rcluster-percent option of PartitionFinder. For example, with -rcluster 10 only the top 10% partition schemes are considered to save computations.
 
 # Additonal Info
 
 * Install [Beast2](https://www.beast2.org) and [Tracer](http://tree.bio.ed.ac.uk/software/tracer/) for tomorrow's demo
 
-* There is an additional tutorial *Correlated_trait_evo.R* for testing correlated trait evolution in the folder *Additional_tutorials*
+* [phylotaR](https://github.com/ropensci/phylotaR) R package for fast Automated Retrieval of Orthologous DNA Sequences from GenBank. Consider using it for building big phylogenies or your project
+
+* [supersmartR](https://github.com/AntonelliLab/supersmartR) SUPERSMART is an R package for the automated generation of phylogenetic trees based around a hybrid method using both the supermatrix and supertree approach. It uses phylotaR. Here is the [tutorial](https://github.com/AntonelliLab/supersmartR-workshop/tree/master/pipelines) for constructing big matrices 
+
+* There is an additional tutorial, if you are interested, *Correlated_trait_evo.R* for testing correlated trait evolution in the folder *Additional_tutorials*

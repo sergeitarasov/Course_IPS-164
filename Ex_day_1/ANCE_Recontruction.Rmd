@@ -123,11 +123,16 @@ Try to code your own Likelihood function that calculates likelihood of a state p
 Before, coding Ln function, simulate a tree and note the main data structures that store tree topology and branch lengths
 
 ```{r}
+set.seed(100)
 tr<-pbtree(n=3, scale=1, b=1, d=0)
 plot(tr)
 nodelabels()
 edgelabels()
 tiplabels()
+
+# save tree file
+library(ape)
+write.tree(tr, file='3_taxon.tree')
 ```
 You will need thee object for you Ln function *tr$edge* *tr$edge.length*
 ```{r}
@@ -172,6 +177,9 @@ pi
 
 #### 2. Recoding data at tips as probabilities
 ```{r}
+# read in tree
+tr <- read.tree(file='3_taxon.tree')
+
 # Let's imagine that our taxa at tips (t1, t2, t3) have the following character states (we use a binary character)
 data <- c(1,0,1)
 names(data) <- c('t1', 't2', 't3')
@@ -219,9 +227,10 @@ Now we calculate root likelihood (node4)
 n5t1.ids=which(tr$edge[,1]==4)
 # get branch lengths for those branches
 br_l_r=tr$edge.length[n5t1.ids]
+br_l_r
 
 # calculate conditional likelihood at root using matrix exponential expm(), and matrix multiplication %*%
-Lr=L5 %*% t(expm(Q*br_l_r[1]))*(data.probs[1,]%*%t(expm(Q*br_l_r[2])))
+Lr=(data.probs[1,]%*%t(expm(Q*br_l_r[1])))*(L5 %*% t(expm(Q*br_l_r[2])))
 Lr
 ```
 
