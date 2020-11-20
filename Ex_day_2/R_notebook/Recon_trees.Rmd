@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Reconstructing Phelogenetic Trees using DNA data"
 output:
   html_document:
     df_print: paged

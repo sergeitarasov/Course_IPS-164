@@ -1,0 +1,211 @@
+IQ-TREE multicore version 1.6.12 for Mac OS X 64-bit built Aug 15 2019
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    lm9-978-001.local (AVX2, FMA3, 32 GB RAM)
+Command: iqtree -spp partition_1.txt -bb 1000 -pre part_simple
+Seed:    483980 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Nov 19 13:11:26 2020
+Kernel:  AVX+FMA - 1 threads (12 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 12 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading partition model file partition_1.txt ...
+
+Loading 3 partitions...
+Reading alignment file aligned_Oniticel_COI.fasta ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 10 sequences with 1549 columns, 402 distinct patterns
+346 parsimony-informative, 169 singleton sites, 1034 constant sites
+                                         Gap/Ambiguity  Composition  p-value
+   1  Helictopleurus_quadripunctatus_KU739489    0.45%    passed     73.71%
+   2  Tiniocellus_sarawacus_KU739486             0.77%    passed     81.00%
+   3  Euoniticellus_fulvus_KU739453              0.84%    passed     84.66%
+   4  Euoniticellus_intermedius_KU739490         0.26%    passed     76.26%
+   5  Tragiscus_dimidiatus_KU739454              0.84%    passed     80.87%
+   6  Scaptodera_rhadamistus_KU739460            0.45%    passed     84.07%
+   7  Oniticellus_egregius_KU739487              0.06%    passed     75.46%
+   8  Liatongus_militaris_KU739488               0.84%    passed     75.33%
+   9  Tiniocellus_spinipes_KU739485              0.84%    passed     99.75%
+  10  Drepanocerus_kirbyi_KU739491               0.84%    passed     80.61%
+****  TOTAL                                      0.62%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+Reading alignment file aligned_Oniticel_COII.fasta ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 10 sequences with 684 columns, 185 distinct patterns
+149 parsimony-informative, 70 singleton sites, 465 constant sites
+                                         Gap/Ambiguity  Composition  p-value
+   1  Helictopleurus_quadripunctatus_KU739489    0.00%    passed     99.28%
+   2  Tiniocellus_sarawacus_KU739486             0.44%    passed     92.93%
+   3  Euoniticellus_fulvus_KU739453              0.44%    passed     99.58%
+   4  Euoniticellus_intermedius_KU739490         0.44%    passed     90.86%
+   5  Tragiscus_dimidiatus_KU739454              0.00%    passed     70.64%
+   6  Scaptodera_rhadamistus_KU739460            0.44%    passed     81.75%
+   7  Oniticellus_egregius_KU739487              0.00%    passed     90.88%
+   8  Liatongus_militaris_KU739488               0.44%    passed     89.66%
+   9  Tiniocellus_spinipes_KU739485              0.44%    passed     97.85%
+  10  Drepanocerus_kirbyi_KU739491               0.00%    passed     98.73%
+****  TOTAL                                      0.26%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+Reading alignment file aligned_Oniticel_rRNA_16S.fasta ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 10 sequences with 1459 columns, 425 distinct patterns
+294 parsimony-informative, 183 singleton sites, 981 constant sites
+                                         Gap/Ambiguity  Composition  p-value
+   1  Helictopleurus_quadripunctatus_KU739489    6.85%    passed     88.24%
+   2  Tiniocellus_sarawacus_KU739486             5.96%    passed     48.27%
+   3  Euoniticellus_fulvus_KU739453              6.51%    passed     68.58%
+   4  Euoniticellus_intermedius_KU739490         6.37%    passed     74.93%
+   5  Tragiscus_dimidiatus_KU739454              9.87%    passed     77.11%
+   6  Scaptodera_rhadamistus_KU739460            5.89%    passed     83.13%
+   7  Oniticellus_egregius_KU739487              4.52%    passed     62.99%
+   8  Liatongus_militaris_KU739488               6.44%    passed     90.33%
+   9  Tiniocellus_spinipes_KU739485              5.96%    passed     95.20%
+  10  Drepanocerus_kirbyi_KU739491               6.44%    passed     83.07%
+****  TOTAL                                      6.48%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1	DNA	10	1549	346	1034	GTR+G	part1
+2	DNA	10	684	149	465	GTR+G	part2
+3	DNA	10	1459	294	982	GTR+G	part3
+Degree of missing data: 0.000
+Info: multi-threading strategy over partitions
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.003 seconds
+Generating 1000 samples for ultrafast bootstrap (seed: 483980)...
+
+NOTE: 5 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -16586.806
+Current log-likelihood at step 1: -15600.187
+Current log-likelihood at step 2: -15551.338
+Current log-likelihood at step 3: -15546.833
+Current log-likelihood at step 4: -15545.795
+Current log-likelihood at step 5: -15545.505
+Current log-likelihood at step 6: -15545.370
+Current log-likelihood at step 7: -15545.276
+Partition-specific rates:  1.014 1.272 0.858
+Parameters optimization took 6 rounds (0.175 sec)
+
+
+WARNING: Estimated model parameters are at boundary that can cause numerical instability!
+
+Computing ML distances based on estimated model parameters... 0.002 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -15536.982
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.116 second
+Computing log-likelihood of 90 initial trees ... 0.267 seconds
+Current best score: -15536.982
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -15536.982
+Current log-likelihood at step 1: -15536.613
+Current log-likelihood at step 2: -15536.533
+Parameters optimization took 1 rounds (0.039 sec)
+
+
+WARNING: Estimated model parameters are at boundary that can cause numerical instability!
+
+BETTER TREE FOUND at iteration 1: -15536.533
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -15535.034
+Current log-likelihood at step 1: -15534.920
+Current log-likelihood at step 2: -15534.826
+Parameters optimization took 1 rounds (0.039 sec)
+
+
+WARNING: Estimated model parameters are at boundary that can cause numerical instability!
+
+BETTER TREE FOUND at iteration 2: -15534.826
+Iteration 10 / LogL: -15534.828 / Time: 0h:0m:1s
+Iteration 20 / LogL: -15542.415 / Time: 0h:0m:1s
+Finish initializing candidate tree set (5)
+Current best tree score: -15534.826 / CPU time: 1.229
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -15536.000 / Time: 0h:0m:1s (0h:0m:4s left)
+Iteration 40 / LogL: -15535.999 / Time: 0h:0m:1s (0h:0m:3s left)
+UPDATE BEST LOG-LIKELIHOOD: -15534.826
+Iteration 50 / LogL: -15534.826 / Time: 0h:0m:2s (0h:0m:2s left)
+Log-likelihood cutoff on original alignment: -15553.406
+Iteration 60 / LogL: -15534.826 / Time: 0h:0m:2s (0h:0m:1s left)
+UPDATE BEST LOG-LIKELIHOOD: -15534.826
+Iteration 70 / LogL: -15536.248 / Time: 0h:0m:2s (0h:0m:1s left)
+UPDATE BEST LOG-LIKELIHOOD: -15534.826
+Iteration 80 / LogL: -15536.522 / Time: 0h:0m:2s (0h:0m:0s left)
+Iteration 90 / LogL: -15538.111 / Time: 0h:0m:3s (0h:0m:0s left)
+Iteration 100 / LogL: -15536.248 / Time: 0h:0m:3s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -15553.406
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 1.000
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:3s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -15534.826
+Current log-likelihood at step 1: -15534.724
+Current log-likelihood at step 2: -15534.604
+Current log-likelihood at step 3: -15534.473
+Current log-likelihood at step 4: -15534.336
+Current log-likelihood at step 5: -15534.172
+Current log-likelihood at step 6: -15533.987
+Current log-likelihood at step 7: -15533.780
+Current log-likelihood at step 8: -15533.556
+Current log-likelihood at step 9: -15533.326
+Current log-likelihood at step 10: -15533.114
+Current log-likelihood at step 11: -15532.918
+Current log-likelihood at step 12: -15532.746
+Current log-likelihood at step 13: -15532.597
+Current log-likelihood at step 14: -15532.471
+Current log-likelihood at step 15: -15532.364
+Current log-likelihood at step 16: -15532.282
+Current log-likelihood at step 17: -15532.216
+Current log-likelihood at step 18: -15532.167
+Current log-likelihood at step 19: -15532.129
+Current log-likelihood at step 20: -15532.105
+Current log-likelihood at step 21: -15532.086
+Current log-likelihood at step 22: -15532.072
+Current log-likelihood at step 23: -15532.062
+Partition-specific rates:  0.767 2.268 0.653
+Parameters optimization took 22 rounds (0.327 sec)
+
+
+WARNING: Estimated model parameters are at boundary that can cause numerical instability!
+
+BEST SCORE FOUND : -15532.062
+Creating bootstrap support values...
+Split supports printed to NEXUS file part_simple.splits.nex
+Total tree length: 1.910
+
+Total number of iterations: 103
+CPU time used for tree search: 3.284 sec (0h:0m:3s)
+Wall-clock time used for tree search: 3.307 sec (0h:0m:3s)
+Total CPU time used: 3.872 sec (0h:0m:3s)
+Total wall-clock time used: 3.918 sec (0h:0m:3s)
+
+Computing bootstrap consensus tree...
+Reading input file part_simple.splits.nex...
+10 taxa and 86 splits.
+Consensus tree written to part_simple.contree
+Reading input trees file part_simple.contree
+Log-likelihood of consensus tree: -15532.062
+
+Analysis results written to: 
+  IQ-TREE report:                part_simple.iqtree
+  Maximum-likelihood tree:       part_simple.treefile
+  Likelihood distances:          part_simple.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          part_simple.splits.nex
+  Consensus tree:                part_simple.contree
+  Screen log file:               part_simple.log
+
+Date and Time: Thu Nov 19 13:11:30 2020

@@ -1,0 +1,111 @@
+#nexus
+
+BEGIN Taxa;
+DIMENSIONS ntax=10;
+TAXLABELS
+[1] 'Helictopleurus_quadripunctatus_KU739489'
+[2] 'Tiniocellus_sarawacus_KU739486'
+[3] 'Euoniticellus_fulvus_KU739453'
+[4] 'Euoniticellus_intermedius_KU739490'
+[5] 'Tragiscus_dimidiatus_KU739454'
+[6] 'Scaptodera_rhadamistus_KU739460'
+[7] 'Oniticellus_egregius_KU739487'
+[8] 'Liatongus_militaris_KU739488'
+[9] 'Tiniocellus_spinipes_KU739485'
+[10] 'Drepanocerus_kirbyi_KU739491'
+;
+END; [Taxa]
+
+BEGIN Splits;
+DIMENSIONS ntax=10 nsplits=86;
+FORMAT labels=no weights=yes confidences=no intervals=no;
+MATRIX
+	100	 2,
+	100	 3,
+	100	 4,
+	100	 3 4,
+	76	 2 3 4,
+	100	 8,
+	25	 2 3 4 8,
+	100	 5,
+	100	 6,
+	100	 7,
+	100	 6 7,
+	83	 5 6 7,
+	19	 1 9 10,
+	100	 9,
+	38	 1 10,
+	100	 10,
+	100	 1,
+	0	 6 7 9,
+	6	 5 6 7 9,
+	33	 1 8 10,
+	24	 2 3 4 9,
+	24	 5 6 7 8,
+	18	 2 3 4 10,
+	5	 5 8,
+	32	 1 9,
+	15	 5 6 7 10,
+	2	 1 8 9,
+	21	 1 8,
+	1	 1 5 6 7 10,
+	10	 2 9,
+	1	 3 4 10,
+	3	 1 2 8 9,
+	2	 1 3 4 8 10,
+	4	 1 5 6 7 9,
+	5	 1 8 9 10,
+	4	 2 10,
+	4	 6 7 10,
+	1	 5 10,
+	2	 1 6 7 9,
+	1	 1 6 7,
+	2	 8 10,
+	2	 1 5 8 9 10,
+	2	 5 9,
+	1	 6 7 8,
+	3	 1 5 6 7 8,
+	2	 1 2 3 4 8,
+	1	 1 5 8 10,
+	1	 1 3 4 9 10,
+	3	 9 10,
+	3	 2 5 6 7,
+	1	 3 4 9,
+	1	 2 8,
+	1	 2 6 7 8,
+	2	 1 5 9 10,
+	1	 1 3 4 8,
+	4	 3 4 8,
+	0	 8 9,
+	2	 1 2 3 4,
+	1	 1 6 7 9 10,
+	1	 1 6 7 8 10,
+	2	 2 6 7,
+	0	 5 9 10,
+	1	 1 2 3 4 9,
+	2	 1 2 3 4 10,
+	0	 2 3 4 5,
+	0	 6 7 9 10,
+	1	 1 2 8 9 10,
+	0	 2 8 9,
+	0	 1 2 8 10,
+	0	 1 5 6 7,
+	0	 1 5 10,
+	0	 1 2 10,
+	0	 2 9 10,
+	0	 2 5 9 10,
+	0	 1 3 4,
+	0	 1 2 6 7 8,
+	0	 8 9 10,
+	0	 1 3 4 9,
+	0	 2 6 7 9,
+	0	 2 5,
+	0	 1 2 9 10,
+	0	 2 5 10,
+	0	 3 4 6 7,
+	0	 1 2,
+	0	 1 5 8 9,
+	0	 1 5 8,
+;
+END; [Splits]
+
