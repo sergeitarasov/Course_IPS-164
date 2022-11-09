@@ -1,9 +1,0 @@
-#nexus
-begin sets;
-    charset part1 = aligned_Oniticel_COI.fasta: 1-1549\3 2-1549\3;
-    charset part2 = aligned_Oniticel_COI.fasta: 3-1549\3;
-    charset part3 = aligned_Oniticel_COII.fasta: 1-684\3 2-684\3;
-    charset part4 = aligned_Oniticel_COII.fasta: 3-684\3;
-    charset part5 = aligned_Oniticel_rRNA_16S.fasta: *;
-end;
-

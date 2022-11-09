@@ -1,7 +1,0 @@
-#nexus
-begin sets;
-    charset part1 = aligned_Oniticel_COI.fasta: *;
-    charset part2 = aligned_Oniticel_COII.fasta: *;
-    charset part3 = aligned_Oniticel_rRNA_16S.fasta: *;
-    charpartition mine = GTR+G:part1, GTR+G:part2, GTR+G:part3;
-end;
