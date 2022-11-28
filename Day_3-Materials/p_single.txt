@@ -1,0 +1,6 @@
+#nexus
+begin sets;
+  charset part1 = aligned_Oniticel_COI.fasta,aligned_Oniticel_COII.fasta,aligned_Oniticel_rRNA_16S.fasta: *;
+  charpartition mymodels =
+    GTR+F+G4: part1;
+end;
